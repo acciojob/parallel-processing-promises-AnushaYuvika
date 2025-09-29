@@ -1,4 +1,3 @@
-//your JS code here. If required.
 const output = document.getElementById("output");
 const errorDiv = document.getElementById("error");
 const loadingDiv = document.getElementById("loading");
@@ -15,8 +14,8 @@ function downloadImage(url) {
     const img = new Image();
     img.src = url;
 
-    img.onload = () => resolve(img); 
-    img.onerror = () => reject(`Failed to load image: ${url}`); 
+    img.onload = () => resolve(img);
+    img.onerror = () => reject(`Failed to load image: ${url}`);
   });
 }
 
@@ -36,9 +35,9 @@ function downloadImages() {
     })
     .catch((err) => {
       loadingDiv.style.display = "none";
-
       errorDiv.textContent = err;
     });
 }
 
-downloadImages();
+// ✅ Only run on button click (not automatically)
+btn.addEventListener("click", downloadImages);
